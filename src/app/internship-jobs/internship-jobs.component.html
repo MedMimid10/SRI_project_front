@@ -1,0 +1,106 @@
+<!-- YourComponent.component.html -->
+<!-- <div class="header">
+  <h1 class="web-app-title">{{ WebPageTitle }}</h1>
+</div>
+
+<div class="container-fluid">
+  <div class="search-results">
+    <h2 class="results-subtitle">Search Results: Internship Jobs</h2>
+    <div class="job-cards">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let job of filteredJobs">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ job.title }}</h5>
+              <p class="card-text">{{ job.company }}</p>
+              <div class="card-text">
+                <span class="me-2">{{ job.location }}</span>
+                <span class="date-form">Reposted {{ job.date }}</span>
+              </div>
+              <p class="card-text description-limit">{{ job.description }}</p>
+              <button class="btn btn-primary" (click)="openJobDetailsModal(job)">View job</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+<div class="header">
+  <button class="btn-back" (click)="backToSearch()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <h1 class="web-app-title">{{ WebPageTitle }}</h1>
+  <div></div> <!-- Placeholder for keeping the title centered -->
+</div>
+
+<div class="container-fluid">
+  <div class="search-results">
+    <h2 class="results-subtitle">Search Results: Job Opportunities</h2>
+    <div class="job-cards">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let job of filteredJobs">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ job.JobTitle }}</h5>
+              <p class="card-text">{{ job.Company }}</p>
+              <div class="card-text">
+                <span class="me-2">{{ job.location }}</span>
+                <span class="date-form">Reposted {{ job.JobPostingDate }}</span>
+              </div>
+              <p class="card-text description-limit">{{ job.JobDescription }}</p>
+              <button class="btn btn-primary me-2" (click)="openJobDetailsModal(job)">View job</button>
+              <button class="btn btn-secondary" (click)="displayDocument(job.DocumentFileName)">Display Document</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-backdrop" [ngClass]="{'show': showModal}" [style.display]="showModal ? 'block' : 'none'"></div>
+
+<!-- Modal for displaying full job details -->
+  <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showModal}" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog custom-modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ selectedJob?.JobTitle }}</h5>
+          <button type="button" class="btn btn-secondary" (click)="displayDocument(selectedJob.DocumentFileName)">Display Document</button>
+          <button type="button" class="close" (click)="closeJobDetailsModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Company:</strong> {{ selectedJob?.Company }}</p>
+          <p><strong>Company Size:</strong> {{ selectedJob?.CompanySize }}</p>
+          <p><strong>Location:</strong> {{ selectedJob?.location }}</p>
+          <p><strong>Date:</strong> {{ selectedJob?.JobPostingDate }}</p>
+          <p><strong>Description:</strong> {{ selectedJob?.JobDescription }}</p>
+          <!-- <p><strong>Duration:</strong> {{ selectedJob?.duration }}</p> -->
+          <p><strong>Skills:</strong> {{ selectedJob?.skills }}</p>
+          <p><strong>Work Type:</strong> {{ selectedJob?.WorkType }}</p>
+          <p><strong>Salary Range:</strong> {{ selectedJob?.SalaryRange }}</p>
+          <!-- Similar Internship Offers -->
+          <h4>Similar Internship Offers</h4>
+          <div class="row mt-4">
+            <div class="col-md-4 mb-4" *ngFor="let offer of similarJobOffers">
+              <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ offer.JobTitle }}</h5>
+                  <p class="card-text">{{ offer.Company }}</p>
+                  <div class="mt-auto">
+                    <button class="btn btn-primary" (click)="viewSimilarJob(offer)">View job</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

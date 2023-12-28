@@ -1,0 +1,112 @@
+<div class="create-job-container">
+  <h2 class="form-header py-2">Create Your Job Post</h2>
+  <form (ngSubmit)="submitJobPost()" #jobPostForm="ngForm" class="job-post-form">
+
+    <!-- Row 1 -->
+    <div class="form-row">
+      <!-- Job Title -->
+      <div class="form-group col-md-6">
+        <label for="title">Job Title</label>
+        <input type="text" id="title" class="form-control" [(ngModel)]="jobPost.JobTitle" name="title" placeholder="Enter job title" required>
+      </div>
+
+      <!-- Company Name -->
+      <div class="form-group col-md-6">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" class="form-control" [(ngModel)]="jobPost.Company" name="company" placeholder="Enter company name" required>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="form-row">
+      <!-- Company Size -->
+      <div class="form-group col-md-6">
+        <label for="companySize">Company Size</label>
+        <input type="number" id="companySize" class="form-control" [(ngModel)]="jobPost.CompanySize" name="companySize" placeholder="Enter company size" required>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group col-md-6">
+        <label for="location">Location</label>
+        <input type="text" id="location" class="form-control" [(ngModel)]="jobPost.location" name="location" placeholder="Enter location" required>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="form-row">
+      <!-- Date -->
+      <div class="form-group col-md-6">
+        <label for="date">posted date</label>
+        <input type="date" id="date" class="form-control" [(ngModel)]="jobPost.JobPostingDate" name="date" required>
+      </div>
+
+      <!-- Skills -->
+      <div class="form-group col-md-6">
+        <label for="skills">Skills</label>
+        <input type="text" id="skills" class="form-control" [(ngModel)]="jobPost.skills" name="skills" placeholder="Enter required skills, e.g., Node.js, SQL, JavaScript" required>
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="form-row">
+      <!-- Work Type -->
+      <div class="form-group col-md-6">
+        <label for="workType">Work Type</label>
+        <select id="workType" class="form-control" [(ngModel)]="jobPost.WorkType" name="workType" required>
+          <option value="">Select work type</option>
+          <option value="Remote">Remote</option>
+          <option value="In-person">In-person</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+      </div>
+
+      <!-- Salary Range -->
+      <div class="form-group col-md-6">
+        <label for="salaryRange">Salary Range</label>
+        <input type="text" id="salaryRange" class="form-control" [(ngModel)]="jobPost.SalaryRange" name="salaryRange" placeholder="Enter salary range" required>
+      </div>
+    </div>
+
+    <!-- Job Description -->
+    <div class="form-group">
+      <label for="description">Job Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="jobPost.JobDescription" name="description" rows="4" placeholder="Enter job description" required></textarea>
+    </div>
+
+    <!-- Buttons Row -->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <button type="button" class="btn btn-secondary" (click)="backToSearch()">Back</button>
+      </div>
+      <div class="form-group col-md-6 text-right">
+        <button type="submit" class="btn btn-primary" [disabled]="!jobPostForm.valid">Post Job</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<!-- ... other HTML code ... -->
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true" [ngClass]="{'show': showConfirmationModal}" [style.display]="showConfirmationModal ? 'block' : 'none'">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+        <button type="button" class="close" aria-label="Close" (click)="showConfirmationModal = false">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your job post has been successfully added!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModalAndRedirect()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ... other HTML code ... -->
+

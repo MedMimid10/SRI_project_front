@@ -1,0 +1,168 @@
+
+
+<!-- <div class="back-img">
+
+</div>
+
+<div class=" s010" >
+  <form (ngSubmit)="performSearch()">
+    <div class="inner-form">
+      <div class="basic-search">
+        <div class="input-field">
+          <input [(ngModel)]="searchKeyword" name="searchKeyword" type="text" placeholder="Type Keywords" />
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+              </svg>
+            </div>
+        </div>
+      </div>
+
+      <div class="advance-search">
+        <span class="desc">ADVANCED SEARCH</span>
+        <div class="row">
+          <div class="input-field">
+            <div class="input-select">
+              <select [(ngModel)]="selectedCountry" class="form-select rounded-5" name="country">
+                <option value="">Country</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+                <option value="maroc">MAROC</option>
+                <option value="france">FRANCE</option>
+              </select>
+            </div>
+          </div>
+
+            <div class="input-field">
+              <div class="input-select">
+                <select [(ngModel)]="selectedCategory" class="form-select rounded-5" name="category">
+                  <option value="">Categories</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="engineering">Engineering</option>
+                </select>
+              </div>
+            </div>
+
+                <!-- <div class="input-field">
+                  <div class="input-select">
+                    <select class="form-select rounded-5" aria-label="Default select example">
+                      <option placeholder="" value="">Time</option>
+                      <option>Last time</option>
+                      <option>Today</option>
+                      <option>This week</option>
+                      <option>This month</option>
+                      <option>This year</option>
+                    </select>
+                  </div>
+                </div> --
+          </div>
+
+          <div class="row second">
+            <div class="input-field">
+              <!-- Display actual search results count --
+              <div class="result-count">
+                <span>{{ jobResultsCount }}</span> results
+              </div>
+              <div class="group-btn">
+                <button type="button" class="btn-delete" (click)="resetSearch()">RESET</button>
+                <button type="submit" class="btn-search">SEARCH</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div> -->
+
+
+<div class="back-img">
+  <!-- Your background image or content -->
+</div>
+
+<div class="s010">
+  <form (ngSubmit)="performSearch()">
+    <div class="inner-form">
+      <div class="basic-search">
+        <div class="input-field">
+          <input [(ngModel)]="searchKeyword" name="searchKeyword" type="text" placeholder="Type Keywords" (input)="performSearchOnChange()" />
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="advance-search">
+        <span class="desc">ADVANCED SEARCH</span>
+        <div class="row">
+          <div class="input-field">
+            <div class="input-select">
+              <select [(ngModel)]="selectedCountry" class="form-select rounded-5" name="country" (change)="performSearchOnChange()">
+                <option value="">Country</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Tuvalu">Tuvalu</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Japan">Japan</option>
+                <option value="Morroco">Morroco</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="Spain">Spain</option>
+                <option value="Russia">Russia</option>
+                <option value="Germany">Germany</option>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <div class="input-select">
+              <select [(ngModel)]="selectedWorkType" class="form-select rounded-5" name="WorkType" (change)="performSearchOnChange()">
+                <option value="">Work Type</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="In-person">In-person</option>
+                <option value="Remote">Remote</option>
+                <!-- <option value="Finance">Finance</option> -->
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <div class="input-select">
+              <select class="form-select rounded-5" name="Time" aria-label="Default select example">
+                <option placeholder="" value="">Time</option>
+                <option value="older">older</option>
+                <option value="lastest">lastest</option>
+                <!-- <option>This week</option>
+                <option>This month</option>
+                <option>This year</option> -->
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row second">
+          <div class="input-field">
+            <div class="result-count">
+              <span>{{ jobResultsCount }}</span> results
+            </div>
+            <div class="group-btn">
+              <button type="button" class="btn-delete" (click)="resetSearch()">RESET</button>
+              <button type="submit" class="btn-search">SEARCH</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="create-job-description">
+    <p>Interested in posting a job? Create your job listing easily to reach potential candidates.</p>
+    <button class="btn-create-job" (click)="navigateToCreateJob()">Create Job Post</button>
+  </div>
+</div>
+
+<!-- <div *ngIf="message" class="alert alert-success">
+  {{ message }}
+</div> -->

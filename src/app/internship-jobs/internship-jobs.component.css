@@ -1,0 +1,151 @@
+/* YourComponent.component.css */
+
+.header {
+  background-color: #4a5494;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Aligns children to each side */
+  align-items: center;
+}
+
+.btn-back {
+  color: #ffffffaf; /* or your preferred color */
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
+.btn-back:hover {
+  color: #fff; /* darker shade for hover effect */
+  text-decoration: none;
+}
+
+
+.web-app-title {
+  flex-grow: 1; /* Ensures the title takes up the maximum available space */
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-style:italic;
+  margin-bottom: 0;
+}
+
+.results-subtitle {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
+.job-cards {
+  margin-top: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.card-text {
+  margin-bottom: 0.5em;
+}
+
+/* YourComponent.component.css or your global styles */
+.description-limit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  max-height: 3em; /* Adjust as needed */
+}
+
+.date-form{
+  font-size: 12px;
+}
+
+.btn-primary {
+  background-color: #4a5494;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #3a489f;
+}
+
+.btn-secondary{
+  background-color: #978ebc;
+}
+
+.btn-secondary:hover {
+  background-color: #8b7bca;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1); /* Increase opacity for more darkness */
+  z-index: 1050;
+  display: none;
+}
+
+/* Modal styles */
+
+.modal-header{
+  background-color: #4a5494;
+  justify-content: normal;
+}
+.modal-title{
+  color: white;
+  margin-right: 15px;
+}
+/* Customized modal styles */
+.modal {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1060;
+  display: none;
+}
+
+/* Adjust width of the modal */
+.custom-modal-dialog {
+  width: 80%; /* Set the desired width for the modal */
+  max-width: 850px;
+  /* max-width: none !important; */
+
+}
+
+.modal-body {
+  max-height: 550px; /* Set your desired fixed height */
+  overflow-y: auto; /* Add a vertical scrollbar when content overflows */
+}
+.close {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 14px;
+  font-size: 35px;
+  color: #ffffffc7; /* Set your desired color */
+  outline: none;
+}
+
+.close:hover {
+  color: #ffffff; /* Change color on hover */
+}
